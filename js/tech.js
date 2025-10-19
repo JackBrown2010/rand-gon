@@ -12545,7 +12545,7 @@ const tech = {
     }
     ],
     //variables use for gun tech upgrades
-    fireRate: 1, //initializes to 1
+    fireRate: Math.floor(Math.random() * 25);, //initializes to 1
     bulletSize: null,
     energySiphon: null,
     healSpawn: null,
