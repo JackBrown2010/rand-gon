@@ -1033,7 +1033,7 @@ const tech = {
             // if (b.activeGun && b.activeGun !== undefined && b.guns[b.activeGun].have && b.guns[b.activeGun].ammo !== Infinity) {
             //     ammoCount += b.guns[b.activeGun].ammo / b.guns[b.activeGun].ammoPack
             // }
-            powerUps.spawnDelay("ammo", (Math.floor(Math.random() * maxNumber) + 1))
+            powerUps.spawnDelay("ammo", (Math.floor(Math.random() * 10) + 1))
             powerUps.spawn(m.pos.x, m.pos.y, "gun");
         },
         remove() { }
@@ -1125,7 +1125,7 @@ const tech = {
         },
         requires: "not non-renewables",
         effect() {
-            tech.ammoCap = 15;
+            tech.ammoCap = Math.floor(Math.random() * 10) + 1;
             powerUps.ammo.effect()
         },
         remove() {
@@ -1165,7 +1165,7 @@ const tech = {
             return !tech.isAmmoFromHealth && !tech.isBoostReplaceAmmo && ((m.health > 0.33 && !tech.isEnergyHealth) || (m.energy > 0.33 && tech.isEnergyHealth))
         },
         requires: "health > 33, not catabolism, quasiparticles",
-        damage: 2.5,
+        damage: Math.floor(Math.random() * 10) + 1,
         effect() {
             m.damageDone *= this.damage
             tech.isEnergyNoAmmo = true;
@@ -1231,7 +1231,7 @@ const tech = {
         },
         requires: "",
         effect() {
-            tech.restDamage += 0.5
+            tech.restDamage += Math.floor(Math.random() * 10) + 1
         },
         remove() {
             tech.restDamage = 1;
@@ -1329,10 +1329,10 @@ const tech = {
         frequencyDefault: 1,
         allowed() { return true },
         requires: "",
-        damage: 1.2,
+        damage: (Math.random() * 10) + 1,
         effect() {
             m.damageDone *= this.damage
-            tech.slowFire = 1.25
+            tech.slowFire = (Math.random() * 10) + 1
             b.setFireCD();
         },
         remove() {
@@ -1352,10 +1352,10 @@ const tech = {
             return powerUps.research.count > 1 || build.isExperimentSelection
         },
         requires: "",
-        damage: 1.4,
+        damage: (Math.random() * 10) + 1,
         effect() {
             m.damageDone *= this.damage
-            tech.slowFireDamage = 1.42
+            tech.slowFireDamage = (Math.random() * 10) + 1
             b.setFireCD();
             powerUps.research.expend(2)
         },
@@ -1451,7 +1451,7 @@ const tech = {
         //     return (m.fieldMode === 5 || m.fieldMode === 7 || m.fieldMode === 8) && (build.isExperimentSelection || powerUps.research.count > 1)
         // },
         // requires: "cloaking, pilot wave, or plasma torch",
-        damage: 1.3,
+        damage: (Math.random() * 10) + 1,
         effect() {
             m.damageDone *= this.damage
             tech.isCloakingDamage = true
@@ -1476,7 +1476,7 @@ const tech = {
         allowed: () => true,
         requires: "",
         effect() {
-            tech.bulletsLastLonger += 0.3
+            tech.bulletsLastLonger += (Math.random() * 10) + 1
         },
         remove() {
             tech.bulletsLastLonger = 1;
@@ -9910,7 +9910,7 @@ const tech = {
         allowed: () => true,
         requires: "",
         effect() {
-            if (Math.random() < 0.07) m.damageDone *= 7.77
+            m.damageDone *= Math.floor(Math.random() * 10) + 1
         },
         remove() { }
     },
