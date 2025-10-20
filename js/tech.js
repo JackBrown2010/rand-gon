@@ -1033,7 +1033,7 @@ const tech = {
             // if (b.activeGun && b.activeGun !== undefined && b.guns[b.activeGun].have && b.guns[b.activeGun].ammo !== Infinity) {
             //     ammoCount += b.guns[b.activeGun].ammo / b.guns[b.activeGun].ammoPack
             // }
-            powerUps.spawnDelay("ammo", 10)
+            powerUps.spawnDelay("ammo", (Math.floor(Math.random() * maxNumber) + 1))
             powerUps.spawn(m.pos.x, m.pos.y, "gun");
         },
         remove() { }
@@ -12545,7 +12545,7 @@ const tech = {
     }
     ],
     //variables use for gun tech upgrades
-    fireRate: Math.floor(Math.random() * 10) + 1, //initializes to 1
+    fireRate: 1, //initializes to 1
     bulletSize: null,
     energySiphon: null,
     healSpawn: null,
