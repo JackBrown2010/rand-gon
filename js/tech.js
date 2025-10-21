@@ -789,7 +789,7 @@ const tech = {
             for (let i = 0, len = tech.tech.length; i < len; i++) {
                 if (tech.tech[i].isGunTech) tech.tech[i].frequency *= 2
             }
-            this.refundAmount += tech.addJunkTechToPool(0.06)
+            this.refundAmount += tech.addJunkTechToPool((Math.random() * 10) + 1)
         },
         refundAmount: 0,
         remove() {
@@ -2411,7 +2411,7 @@ const tech = {
         },
         requires: "at least 3 bots",
         effect() {
-            for (let i = 0; i < 2; i++) b.randomBot()
+            for (let i = 0; i < Math.floor(Math.random() * 10) + 1; i++) b.randomBot()
         },
         remove() {
         }
@@ -2700,7 +2700,7 @@ const tech = {
         requires: "",
         effect() {
             tech.isFieldHarmReduction = true
-            m.damageReduction *= 0.6
+            m.damageReduction *= (Math.random() * 0) + 1
             powerUps.research.expend(2)
         },
         remove() {
@@ -3153,7 +3153,7 @@ const tech = {
         },
         requires: "",
         effect() {
-            tech.energySiphon += 0.04;
+            tech.energySiphon += (Math.random() * 1);
         },
         remove() {
             tech.energySiphon = 0;
@@ -3354,7 +3354,7 @@ const tech = {
         requires: "",
         effect() {
             tech.isZeno = true;
-            m.damageReduction *= 0.3
+            m.damageReduction *= (Math.random() * 1)
         },
         remove() {
             tech.isZeno = false;
@@ -3421,7 +3421,7 @@ const tech = {
             return true
         },
         requires: "",
-        damage: 1.7,
+        damage: (Math.random() * 10),
         effect() {
             m.damageDone *= this.damage
             tech.isTechDamage = true;
@@ -3444,7 +3444,7 @@ const tech = {
             return true
         },
         requires: "",
-        damage: 1.7,
+        damage: (Math.random() * 10),
         effect() {
             m.damageDone *= this.damage
             tech.isHalfHeals = true;
@@ -3623,7 +3623,7 @@ const tech = {
         effect() {
             for (let i = 0; i < 13; i++) powerUps.spawn(m.pos.x + 60 * (Math.random() - 0.5), m.pos.y + 60 * (Math.random() - 0.5), "heal");
             for (let i = 0, len = tech.tech.length; i < len; i++) {
-                if (tech.tech[i].isHealTech) tech.tech[i].frequency *= 2
+                if (tech.tech[i].isHealTech) tech.tech[i].frequency *= Math.floor(Math.random() * 10) + 1
             }
         },
         remove() { }
@@ -3756,7 +3756,7 @@ const tech = {
         requires: "",
         effect() {
             tech.isImmortal = true;
-            m.damageReduction *= 0.7
+            m.damageReduction *= Math.random()
         },
         remove() {
             tech.isImmortal = false;
